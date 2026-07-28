@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reel_glass/features/movies/cubit/movies_cubit.dart';
 import 'package:reel_glass/features/movies/data/movies_repository.dart';
-import 'package:reel_glass/features/movies/widgets/movie_tile.dart';
+import 'package:reel_glass/features/movies/widgets/movie_card.dart';
 
 class MoviesPage extends StatelessWidget {
   const MoviesPage({super.key});
@@ -27,8 +27,8 @@ class MoviesView extends StatelessWidget {
       body: BlocBuilder<MoviesCubit, MoviesState>(
         builder: (context, state) {
           return GridView.builder(
-            padding: EdgeInsets.all(16.0),
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            padding: const EdgeInsets.all(16.0),
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
               childAspectRatio: 2 / 3,
               crossAxisSpacing: 16,
@@ -36,7 +36,7 @@ class MoviesView extends StatelessWidget {
             ),
             itemCount: 20,
             itemBuilder: (context, index) =>
-                MovieTile(movie: state.movies[index]),
+                MovieCard(movie: state.movies[index]),
           );
         },
       ),

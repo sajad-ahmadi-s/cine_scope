@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reel_glass/features/movies/models/models.dart';
+import 'package:reel_glass/features/movies/widgets/cast_card.dart';
 
 class CastSection extends StatelessWidget {
   const CastSection({super.key, required this.casts});
@@ -8,15 +9,31 @@ class CastSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
-    final textTheme = theme.textTheme;
-    return Column(
-      spacing: 12,
-      children: [
-        Text('Casts', style: textTheme.titleLarge),
-        Text(casts.join(' ')),
-      ],
+    final textTheme = Theme.of(context).textTheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+      child: Column(
+        crossAxisAlignment: .start,
+        children: [
+          Text('Cast', style: textTheme.titleLarge),
+          const SizedBox(height: 16),
+          SizedBox(
+            height: 225,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: casts.length,
+              itemBuilder: (context, index) {
+                final castMember = casts[index];
+                return CastCard(castMember: castMember);
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(width: 16);
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

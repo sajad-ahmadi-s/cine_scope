@@ -14,6 +14,7 @@ class MovieDetailsPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.only(bottom: 48),
         child: Column(
           children: [
             MovieDetailsHeader(movie: movie),

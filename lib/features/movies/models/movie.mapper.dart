@@ -15,6 +15,7 @@ class MovieMapper extends ClassMapperBase<Movie> {
   static MovieMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = MovieMapper._());
+      CastMemberMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -22,8 +23,8 @@ class MovieMapper extends ClassMapperBase<Movie> {
   @override
   final String id = 'Movie';
 
-  static String _$id(Movie v) => v.id;
-  static const Field<Movie, String> _f$id = Field('id', _$id);
+  static int _$id(Movie v) => v.id;
+  static const Field<Movie, int> _f$id = Field('id', _$id);
   static String _$title(Movie v) => v.title;
   static const Field<Movie, String> _f$title = Field('title', _$title);
   static String _$posterPath(Movie v) => v.posterPath;
@@ -52,8 +53,8 @@ class MovieMapper extends ClassMapperBase<Movie> {
     'runtimeMinutes',
     _$runtimeMinutes,
   );
-  static List<String> _$cast(Movie v) => v.cast;
-  static const Field<Movie, List<String>> _f$cast = Field('cast', _$cast);
+  static List<CastMember> _$cast(Movie v) => v.cast;
+  static const Field<Movie, List<CastMember>> _f$cast = Field('cast', _$cast);
 
   @override
   final MappableFields<Movie> fields = const {
@@ -131,9 +132,10 @@ extension MovieValueCopy<$R, $Out> on ObjectCopyWith<$R, Movie, $Out> {
 abstract class MovieCopyWith<$R, $In extends Movie, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get genres;
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get cast;
+  ListCopyWith<$R, CastMember, CastMemberCopyWith<$R, CastMember, CastMember>>
+  get cast;
   $R call({
-    String? id,
+    int? id,
     String? title,
     String? posterPath,
     String? backdropPath,
@@ -142,7 +144,7 @@ abstract class MovieCopyWith<$R, $In extends Movie, $Out>
     double? rating,
     List<String>? genres,
     int? runtimeMinutes,
-    List<String>? cast,
+    List<CastMember>? cast,
   });
   MovieCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -161,15 +163,15 @@ class _MovieCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Movie, $Out>
         (v) => call(genres: v),
       );
   @override
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get cast =>
-      ListCopyWith(
-        $value.cast,
-        (v, t) => ObjectCopyWith(v, $identity, t),
-        (v) => call(cast: v),
-      );
+  ListCopyWith<$R, CastMember, CastMemberCopyWith<$R, CastMember, CastMember>>
+  get cast => ListCopyWith(
+    $value.cast,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(cast: v),
+  );
   @override
   $R call({
-    String? id,
+    int? id,
     String? title,
     String? posterPath,
     String? backdropPath,
@@ -178,7 +180,7 @@ class _MovieCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Movie, $Out>
     double? rating,
     List<String>? genres,
     int? runtimeMinutes,
-    List<String>? cast,
+    List<CastMember>? cast,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,

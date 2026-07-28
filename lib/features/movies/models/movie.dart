@@ -1,4 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:reel_glass/features/movies/models/cast_member.dart';
 
 part 'movie.mapper.dart';
 
@@ -17,7 +18,7 @@ class Movie with MovieMappable {
     required this.cast,
   });
 
-  final String id;
+  final int id;
   final String title;
   final String posterPath;
   final String backdropPath;
@@ -26,5 +27,5 @@ class Movie with MovieMappable {
   final double rating;
   final List<String> genres;
   final int runtimeMinutes;
-  final List<String> cast;
+  final List<CastMember> cast;
 }

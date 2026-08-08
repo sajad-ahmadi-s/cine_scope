@@ -1,22 +1,30 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reel_glass/features/movies/cubit/movies_cubit.dart';
+import 'package:reel_glass/features/movies/models/movie.dart';
+import 'package:reel_glass/features/movies/widgets/genre_filter.dart';
 
 class MovieHoverOverlay extends StatelessWidget {
   const MovieHoverOverlay({
     super.key,
     required this.isHovered,
-    required this.description,
+    required this.movie,
   });
 
   final bool isHovered;
-  final String description;
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
+
+    final selectedGenres = context.select(
+      (MoviesCubit cubit) => cubit.state.query.genres,
+    );
 
     return AnimatedSlide(
       offset: isHovered ? Offset.zero : const Offset(0, 1),
@@ -34,10 +42,30 @@ class MovieHoverOverlay extends StatelessWidget {
                 color: colorScheme.outline.withValues(alpha: 0.35),
               ),
             ),
-            child: Text(
-              description,
-              style: textTheme.bodyMedium?.copyWith(
-                color: colorScheme.onSurface,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${movie.title} (${movie.releaseYear})',
+                    style: textTheme.titleMedium?.copyWith(
+                      color: colorScheme.onSurface,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    movie.overview,
+                    style: textTheme.bodyMedium?.copyWith(
+                      color: colorScheme.onSurface,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  GenreFilter(
+                    genres: movie.genres,
+                    selectedGenres: selectedGenres,
+                    onGenreSelected: context.read<MoviesCubit>().toggleGenre,
+                  ),
+                ],
               ),
             ),
           ),

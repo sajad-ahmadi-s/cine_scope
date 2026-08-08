@@ -29,10 +29,10 @@ class MoviesStatusMapper extends EnumMapper<MoviesStatus> {
     switch (value) {
       case r'loading':
         return MoviesStatus.loading;
-      case r'loaded':
-        return MoviesStatus.loaded;
-      case r'error':
-        return MoviesStatus.error;
+      case r'sucess':
+        return MoviesStatus.sucess;
+      case r'failure':
+        return MoviesStatus.failure;
       default:
         throw MapperException.unknownEnumValue(value);
     }
@@ -43,10 +43,10 @@ class MoviesStatusMapper extends EnumMapper<MoviesStatus> {
     switch (self) {
       case MoviesStatus.loading:
         return r'loading';
-      case MoviesStatus.loaded:
-        return r'loaded';
-      case MoviesStatus.error:
-        return r'error';
+      case MoviesStatus.sucess:
+        return r'sucess';
+      case MoviesStatus.failure:
+        return r'failure';
     }
   }
 }
@@ -67,6 +67,7 @@ class MoviesStateMapper extends ClassMapperBase<MoviesState> {
       MapperContainer.globals.use(_instance = MoviesStateMapper._());
       MoviesStatusMapper.ensureInitialized();
       MovieMapper.ensureInitialized();
+      MoviesQueryMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -88,6 +89,20 @@ class MoviesStateMapper extends ClassMapperBase<MoviesState> {
     opt: true,
     def: const [],
   );
+  static List<Movie> _$displayedMovies(MoviesState v) => v.displayedMovies;
+  static const Field<MoviesState, List<Movie>> _f$displayedMovies = Field(
+    'displayedMovies',
+    _$displayedMovies,
+    opt: true,
+    def: const [],
+  );
+  static MoviesQuery _$query(MoviesState v) => v.query;
+  static const Field<MoviesState, MoviesQuery> _f$query = Field(
+    'query',
+    _$query,
+    opt: true,
+    def: const MoviesQuery(),
+  );
   static String _$errorMessage(MoviesState v) => v.errorMessage;
   static const Field<MoviesState, String> _f$errorMessage = Field(
     'errorMessage',
@@ -100,6 +115,8 @@ class MoviesStateMapper extends ClassMapperBase<MoviesState> {
   final MappableFields<MoviesState> fields = const {
     #status: _f$status,
     #movies: _f$movies,
+    #displayedMovies: _f$displayedMovies,
+    #query: _f$query,
     #errorMessage: _f$errorMessage,
   };
 
@@ -107,6 +124,8 @@ class MoviesStateMapper extends ClassMapperBase<MoviesState> {
     return MoviesState(
       status: data.dec(_f$status),
       movies: data.dec(_f$movies),
+      displayedMovies: data.dec(_f$displayedMovies),
+      query: data.dec(_f$query),
       errorMessage: data.dec(_f$errorMessage),
     );
   }
@@ -172,7 +191,15 @@ extension MoviesStateValueCopy<$R, $Out>
 abstract class MoviesStateCopyWith<$R, $In extends MoviesState, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, Movie, MovieCopyWith<$R, Movie, Movie>> get movies;
-  $R call({MoviesStatus? status, List<Movie>? movies, String? errorMessage});
+  ListCopyWith<$R, Movie, MovieCopyWith<$R, Movie, Movie>> get displayedMovies;
+  MoviesQueryCopyWith<$R, MoviesQuery, MoviesQuery> get query;
+  $R call({
+    MoviesStatus? status,
+    List<Movie>? movies,
+    List<Movie>? displayedMovies,
+    MoviesQuery? query,
+    String? errorMessage,
+  });
   MoviesStateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -192,18 +219,37 @@ class _MoviesStateCopyWithImpl<$R, $Out>
         (v) => call(movies: v),
       );
   @override
-  $R call({MoviesStatus? status, List<Movie>? movies, String? errorMessage}) =>
-      $apply(
-        FieldCopyWithData({
-          if (status != null) #status: status,
-          if (movies != null) #movies: movies,
-          if (errorMessage != null) #errorMessage: errorMessage,
-        }),
-      );
+  ListCopyWith<$R, Movie, MovieCopyWith<$R, Movie, Movie>>
+  get displayedMovies => ListCopyWith(
+    $value.displayedMovies,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(displayedMovies: v),
+  );
+  @override
+  MoviesQueryCopyWith<$R, MoviesQuery, MoviesQuery> get query =>
+      $value.query.copyWith.$chain((v) => call(query: v));
+  @override
+  $R call({
+    MoviesStatus? status,
+    List<Movie>? movies,
+    List<Movie>? displayedMovies,
+    MoviesQuery? query,
+    String? errorMessage,
+  }) => $apply(
+    FieldCopyWithData({
+      if (status != null) #status: status,
+      if (movies != null) #movies: movies,
+      if (displayedMovies != null) #displayedMovies: displayedMovies,
+      if (query != null) #query: query,
+      if (errorMessage != null) #errorMessage: errorMessage,
+    }),
+  );
   @override
   MoviesState $make(CopyWithData data) => MoviesState(
     status: data.get(#status, or: $value.status),
     movies: data.get(#movies, or: $value.movies),
+    displayedMovies: data.get(#displayedMovies, or: $value.displayedMovies),
+    query: data.get(#query, or: $value.query),
     errorMessage: data.get(#errorMessage, or: $value.errorMessage),
   );
 

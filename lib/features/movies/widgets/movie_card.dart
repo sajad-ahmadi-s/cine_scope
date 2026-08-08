@@ -43,7 +43,7 @@ class _MovieCardState extends State<MovieCard> {
               Positioned.fill(
                 child: MovieHoverOverlay(
                   isHovered: _isHovered,
-                  description: widget.movie.overview,
+                  movie: widget.movie,
                 ),
               ),
             ],

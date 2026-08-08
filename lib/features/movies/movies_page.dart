@@ -34,9 +34,9 @@ class MoviesView extends StatelessWidget {
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
             ),
-            itemCount: 20,
+            itemCount: state.displayedMovies.length,
             itemBuilder: (context, index) =>
-                MovieCard(movie: state.movies[index]),
+                MovieCard(movie: state.displayedMovies[index]),
           );
         },
       ),

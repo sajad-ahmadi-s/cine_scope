@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:reel_glass/features/movies/models/models.dart';
+import 'package:cine_scope/features/movies/models/models.dart';
 
 class CastCard extends StatelessWidget {
   const CastCard({super.key, required this.castMember});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reel_glass/app/router.dart';
-import 'package:reel_glass/app/theme.dart';
+import 'package:cine_scope/app/router.dart';
+import 'package:cine_scope/app/theme.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -9,7 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Reel Glass',
+      title: 'CineScope',
       theme: AppTheme.dark,
       routerConfig: router,
     );

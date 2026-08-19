@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:reel_glass/features/movies/extensions/duration_minutes_x.dart';
-import 'package:reel_glass/features/movies/models/movie.dart';
+import 'package:cine_scope/features/movies/extensions/duration_minutes_x.dart';
+import 'package:cine_scope/features/movies/models/movie.dart';
 
 class MovieDetailsHeader extends StatelessWidget {
   const MovieDetailsHeader({super.key, required this.movie});

@@ -6,7 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:reel_glass/app/app.dart';
+import 'package:cine_scope/app/app.dart';
 
 void main() {
   testWidgets('App has a title and message', (WidgetTester tester) async {
@@ -14,6 +14,6 @@ void main() {
     await tester.pumpWidget(const App());
 
     // Verify that our counter starts at 0.
-    expect(find.text('Reel Glass'), findsOneWidget);
+    expect(find.text('CineScope'), findsOneWidget);
   });
 }

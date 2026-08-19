@@ -1,5 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:reel_glass/features/movies/models/cast_member.dart';
+import 'package:cine_scope/features/movies/models/cast_member.dart';
 
 part 'movie.mapper.dart';
 

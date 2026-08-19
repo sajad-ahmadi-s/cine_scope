@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reel_glass/features/movies/cubit/movies_cubit.dart';
-import 'package:reel_glass/features/movies/data/movies_repository.dart';
-import 'package:reel_glass/features/movies/widgets/movie_card.dart';
+import 'package:cine_scope/features/movies/cubit/movies_cubit.dart';
+import 'package:cine_scope/features/movies/data/movies_repository.dart';
+import 'package:cine_scope/features/movies/widgets/movie_card.dart';
 
 class MoviesPage extends StatelessWidget {
   const MoviesPage({super.key});

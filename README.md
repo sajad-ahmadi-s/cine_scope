@@ -1,6 +1,6 @@
-# reel_glass
+# CineScope
 
-A new Flutter project.
+A modern movie discovery app for exploring films, genres, and casts.
 
 ## Getting Started
 

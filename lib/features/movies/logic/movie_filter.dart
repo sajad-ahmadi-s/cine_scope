@@ -1,4 +1,4 @@
-import 'package:reel_glass/features/movies/models/movie.dart';
+import 'package:cine_scope/features/movies/models/movie.dart';
 
 class MovieFilter {
   static List<Movie> byGenres(List<Movie> movies, List<String> genres) {

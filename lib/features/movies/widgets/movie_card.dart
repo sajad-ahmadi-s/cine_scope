@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:reel_glass/features/movies/models/movie.dart';
-import 'package:reel_glass/features/movies/widgets/movie_hover_overlay.dart';
-import 'package:reel_glass/features/movies/widgets/movie_poster_placeholder.dart';
+import 'package:cine_scope/features/movies/models/movie.dart';
+import 'package:cine_scope/features/movies/widgets/movie_hover_overlay.dart';
+import 'package:cine_scope/features/movies/widgets/movie_poster_placeholder.dart';
 
 class MovieCard extends StatefulWidget {
   const MovieCard({super.key, required this.movie});

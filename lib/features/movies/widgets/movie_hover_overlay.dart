@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reel_glass/features/movies/cubit/movies_cubit.dart';
-import 'package:reel_glass/features/movies/models/movie.dart';
-import 'package:reel_glass/features/movies/widgets/genre_filter.dart';
+import 'package:cine_scope/features/movies/cubit/movies_cubit.dart';
+import 'package:cine_scope/features/movies/models/movie.dart';
+import 'package:cine_scope/features/movies/widgets/genre_filter.dart';
 
 class MovieHoverOverlay extends StatelessWidget {
   const MovieHoverOverlay({

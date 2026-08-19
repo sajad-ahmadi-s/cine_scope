@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:reel_glass/features/movies/models/movie.dart';
-import 'package:reel_glass/features/movies/widgets/cast_section.dart';
-import 'package:reel_glass/features/movies/widgets/movie_details_header.dart';
+import 'package:cine_scope/features/movies/models/movie.dart';
+import 'package:cine_scope/features/movies/widgets/cast_section.dart';
+import 'package:cine_scope/features/movies/widgets/movie_details_header.dart';
 
 class MovieDetailsPage extends StatelessWidget {
   const MovieDetailsPage({super.key, required this.movie});

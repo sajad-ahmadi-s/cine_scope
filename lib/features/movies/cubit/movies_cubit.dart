@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:reel_glass/features/movies/data/movies_repository.dart';
-import 'package:reel_glass/features/movies/logic/movie_filter.dart';
-import 'package:reel_glass/features/movies/models/models.dart';
-import 'package:reel_glass/features/movies/models/movies_query.dart';
+import 'package:cine_scope/features/movies/data/movies_repository.dart';
+import 'package:cine_scope/features/movies/logic/movie_filter.dart';
+import 'package:cine_scope/features/movies/models/models.dart';
+import 'package:cine_scope/features/movies/models/movies_query.dart';
 
 part 'movies_cubit.mapper.dart';
 part 'movies_state.dart';

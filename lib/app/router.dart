@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:reel_glass/features/movies/models/movie.dart';
-import 'package:reel_glass/features/movies/movie_details_page.dart';
-import 'package:reel_glass/features/movies/movies_page.dart';
+import 'package:cine_scope/features/movies/models/movie.dart';
+import 'package:cine_scope/features/movies/movie_details_page.dart';
+import 'package:cine_scope/features/movies/movies_page.dart';
 
 final router = GoRouter(
   routes: [

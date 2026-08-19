@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reel_glass/features/movies/models/models.dart';
-import 'package:reel_glass/features/movies/widgets/cast_card.dart';
+import 'package:cine_scope/features/movies/models/models.dart';
+import 'package:cine_scope/features/movies/widgets/cast_card.dart';
 
 class CastSection extends StatelessWidget {
   const CastSection({super.key, required this.casts});

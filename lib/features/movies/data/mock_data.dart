@@ -1,4 +1,4 @@
-import 'package:reel_glass/features/movies/models/models.dart';
+import 'package:cine_scope/features/movies/models/models.dart';
 
 final movies = <Movie>[
   const Movie(
